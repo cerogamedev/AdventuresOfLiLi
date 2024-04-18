@@ -9,7 +9,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] public TextAsset inkJSON;
 
     public NPCScriptable _scriptObject;
 
@@ -33,6 +33,8 @@ public class DialogueTrigger : MonoBehaviour
                 DialogueManager.Instance._npcPortrait.sprite = _scriptObject._portrait;
                 if (!isStarting)
                 {
+                    DialogueManager.Instance.NewStoryHere();
+
                     DialogueManager.Instance.isInDialogue = true;
                     DialogueManager.Instance.StartTheDialogue();
                     isStarting = true;

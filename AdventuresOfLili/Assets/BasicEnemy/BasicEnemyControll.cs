@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class BasicEnemyControll : MonoBehaviour
 {
-    private Animator anim;
+    [HideInInspector] public Animator anim;
     private Rigidbody2D rb;
     private BasicEnemyStateMachine enemyState;
     private GameObject enemyControlObject;
+    private GameObject player;
 
     [Header("Move&Patroll")]
     public float moveSpeed;
     public GameObject[] Patroll;
-    public bool enemyHere = false;
-
 
     [Header("Attack")]
     public GameObject AttackRange;
+    public bool enemyHere = false;
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        AttackRange.SetActive(false);
+        moveSpeed = GetComponent<Enemy>().MoveSpeed;
     }
 
     void Start()
@@ -33,17 +36,20 @@ public class BasicEnemyControll : MonoBehaviour
     void Update()
     {
         enemyState.UpdateState(this);
-        IsEnemyHere();
     }
+
     public void ChangeState(BasicEnemyStateMachine newState)
     {
         enemyState.ExitState(this);
         enemyState = newState;
         enemyState.EnterState(this);
     }
-    public void IsEnemyHere()
+    public void EnemyAttackOpen()
     {
-        BoxCollider2D collider = enemyControlObject.GetComponent<BoxCollider2D>();
-        //Observer pattern ile gayet iyi yapýlabilir!!!!
+        AttackRange.SetActive(true);
+    }
+    public void EnemyAttackClose()
+    {
+        AttackRange.SetActive(false);
     }
 }

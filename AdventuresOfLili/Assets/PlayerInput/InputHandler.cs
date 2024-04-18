@@ -10,6 +10,7 @@ public class InputHandler : MonoSingleton<InputHandler>
     public bool GKeyDown;
     public bool GKeyUp;
     public bool IsDashKey;
+    public bool IsAttack;
     private void Awake()
     {
         playerInput = new PlayerInput();
@@ -26,6 +27,7 @@ public class InputHandler : MonoSingleton<InputHandler>
         GKeyDown = playerInput.Player.Jump.WasPressedThisFrame();
         GKeyUp = playerInput.Player.Jump.WasReleasedThisFrame();
         IsDashKey = playerInput.Player.Dash.WasPerformedThisFrame();
+        IsAttack = playerInput.Player.Attack.WasPressedThisFrame();
     }
 
 }

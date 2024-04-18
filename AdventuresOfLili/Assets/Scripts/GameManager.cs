@@ -6,7 +6,7 @@ using System;
 public class GameManager : MonoSingleton<GameManager>
 {
     private GameObject[] respawnPoints;
-    private GameObject currentRespawnPoint;
+    public GameObject currentRespawnPoint;
     private int index = 0;
 
     [SerializeField] private GameObject player;

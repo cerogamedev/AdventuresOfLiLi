@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationConroller : MonoBehaviour
+public class AnimationConroller : MonoSingleton<AnimationConroller>
 {
     public enum Moves {idle, run, jumpUp, jumpDown }
     private Moves currentMove;
 
-    private Animator anim;
+    [HideInInspector] public Animator anim;
     private Rigidbody2D rb;
     private BoxCollider2D coll;
     [SerializeField] private LayerMask jumpableGround;
     public bool isGrounded;
 
-
+    public bool isAttackAnimationPlaying = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,5 +63,13 @@ public class AnimationConroller : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0); 
         }
+    }
+    public void StartTheAttackAnimation()
+    {
+        isAttackAnimationPlaying = true;
+    }
+    public void EndTheAttackAnimation()
+    {
+        isAttackAnimationPlaying = false;
     }
 }

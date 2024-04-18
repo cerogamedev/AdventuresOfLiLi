@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CS
   m_EditorClassIdentifier: 
   _name: CS
-  _portrait: {fileID: 21300000, guid: 9d2cb64059e8ff645a38bd964271671f, type: 3}
+  _portrait: {fileID: 21300000, guid: 1fbfd8b49f5a60944b99f021ece5bdb6, type: 3}

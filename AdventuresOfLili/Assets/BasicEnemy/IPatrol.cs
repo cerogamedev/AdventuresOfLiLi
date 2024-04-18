@@ -17,6 +17,8 @@ public class IPatrol : BasicEnemyStateMachine
 
     public override void UpdateState(BasicEnemyControll enemy)
     {
+        enemy.anim.Play("Walk");
+
 
         if (Vector2.Distance(enemy.transform.position, Point) < 0.5f)
         {
@@ -29,7 +31,15 @@ public class IPatrol : BasicEnemyStateMachine
         {
             enemy.ChangeState(new IFollow());
         }
+        if ((enemy.transform.position.x - Point.x)<0f)
+        {
+            enemy.transform.localScale = new Vector3(-0.61f, enemy.transform.localScale.y, enemy.transform.localScale.z);
 
+        }
+        if ((enemy.transform.position.x - Point.x) > 0f)
+        {
+            enemy.transform.localScale = new Vector3(+0.61f, enemy.transform.localScale.y, enemy.transform.localScale.z);
+        }
     }
 
     public Vector2 GetPoint(GameObject leftOrder, GameObject rigthOrder)

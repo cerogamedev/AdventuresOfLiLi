@@ -46,6 +46,10 @@ public class DialogueManager : MonoBehaviour
             _instance = this;
         }
     }
+    public void NewStoryHere()
+    {
+        story = new Story(inkFile.text);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +57,6 @@ public class DialogueManager : MonoBehaviour
         optionPanel.SetActive(false);
         bgPanel.SetActive(false);
 
-        story = new Story(inkFile.text);
         message = textBox.transform.GetComponent<TextMeshProUGUI>();
         tags = new List<string>();
         choiceSelected = null;
@@ -61,7 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isWriting == false && isInDialogue)
+        if (Input.GetKeyDown(KeyCode.Space) && isWriting == false && isInDialogue && story!= null)
         {
             if (story.canContinue)
             {

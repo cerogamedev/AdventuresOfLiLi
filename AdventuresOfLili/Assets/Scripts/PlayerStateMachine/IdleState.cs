@@ -6,6 +6,7 @@ public class IdleState : IState
 {
     public void EnterState(PlayerController player)
     {
+
     }
 
     public void ExitState(PlayerController player)

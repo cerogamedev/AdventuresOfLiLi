@@ -10,6 +10,11 @@ public class FinishEpisode : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
+        {
             LevelIsOver?.Invoke();
+            GetComponent<BoxCollider2D>().enabled = false;
+            this.enabled = false;
+        }
+
     }
 }
