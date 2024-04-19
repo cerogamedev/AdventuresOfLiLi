@@ -14,7 +14,6 @@ public class WalkingState : IState
 
     public void UpdateState(PlayerController player)
     {
-
         Vector2 pos = player.transform.position;
 
         var horizontalMove = player.inputHandler.GetMovementAxis();

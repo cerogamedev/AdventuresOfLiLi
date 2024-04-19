@@ -13,7 +13,9 @@ public class FinishEpisode : MonoBehaviour
         {
             LevelIsOver?.Invoke();
             GetComponent<BoxCollider2D>().enabled = false;
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.CheckIn);
             this.enabled = false;
+
         }
 
     }

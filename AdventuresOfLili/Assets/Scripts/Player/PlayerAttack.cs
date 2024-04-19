@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (InputHandler.Instance.IsAttack)
             {
+                AudioManager.Instance.PlaySfx(AudioManager.Instance.Sword);
                 PlayerController.Instance.ChangeState(new AttackState());
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemy);
                 for (int i = 0; i<enemiesToDamage.Length; i++)

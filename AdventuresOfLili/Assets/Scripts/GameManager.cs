@@ -40,7 +40,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         else
         {
-            Debug.Log("Game is over");
+            Application.Quit();
         }
     }
 }

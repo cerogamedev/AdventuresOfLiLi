@@ -5,13 +5,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Destroy(this.gameObject);
     }
-
-    void Update()
+    private void Awake()
     {
-        
+        Destroy(this.gameObject, 6f);
     }
 }

@@ -7,6 +7,7 @@ public class JumpingState : IState
 
     public void EnterState(PlayerController player)
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.Jumping);
     }
 
     public void ExitState(PlayerController player)

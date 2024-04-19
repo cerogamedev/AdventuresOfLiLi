@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class TeleporterPlatform : MonoBehaviour
 {
-    public Transform[] teleportPoints; // Teleport edilecek noktalarýn transformlarý
+    public Transform[] teleportPoints; 
 
-    public float teleportDelay = 1f; // Teleportasyon arasýndaki gecikme süresi
+    public float teleportDelay = 1f; 
 
-    private int currentPointIndex = 0; // Þu anki teleport noktasýnýn dizinini tutar
+    private int currentPointIndex = 0; 
 
-    private bool isTeleporting = false; // Teleportasyonun devam edip etmediðini belirler
+    private bool isTeleporting = false; 
 
     private void Start()
     {
@@ -38,17 +38,8 @@ public class TeleporterPlatform : MonoBehaviour
 
     private IEnumerator TeleportAnimation()
     {
-        // Teleport animasyonu burada gerçekleþtirilebilir
-        Debug.Log("Teleporting to point " + (currentPointIndex + 1) + ": " + teleportPoints[currentPointIndex].name);
-
-        // Teleport iþlemi için bekletme süresi
         yield return new WaitForSeconds(teleportDelay);
-
-        // Karakterin pozisyonunu hedef noktaya ayarla
         transform.position = teleportPoints[currentPointIndex].position;
-
-        Debug.Log("Teleportation to point " + (currentPointIndex + 1) + " completed.");
-
         isTeleporting = false;
     }
 }
