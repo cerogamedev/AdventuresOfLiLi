@@ -18,6 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
     void Start()
     {
         currentRespawnPoint = respawnPoints[0];
+        player.transform.position = new Vector2(-10, -0.55f);
     }
 
 
